@@ -1,13 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const openBtn = document.querySelector(".js-open-modal");
   const modal = document.getElementById("modal");
-
   const openBtnCard = document.querySelectorAll(".card__btn");
   const cardItems = document.querySelectorAll(".modal-list2");
   const circle1 = document.querySelector(".circle1")
   const circle2 = document.querySelector(".circle2")
   const btnPrevious = document.querySelector(".previous");
   const btnNext = document.querySelector(".next");
+  const secondSlide = document.getElementById('secondSlide')
+  const pinkSperms = document.querySelector('.pink-sperm')
+
+  document.body.addEventListener('scroll', (event) => {
+    if (secondSlide.getBoundingClientRect().right <= 1024 && secondSlide.getBoundingClientRect().left >= 0) {
+      pinkSperms.style.opacity = "1";
+      return
+    }
+    pinkSperms.style.opacity = "0";
+  })
 
   btnPrevious.addEventListener('click', () => {
     circle1.classList.add("active")
@@ -21,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   openBtn.addEventListener("click", () => {
-    modal.style.display = "block";
+    modal.style.zIndex = "6";
+    modal.style.opacity = "1";
   });
 
   modal.querySelector(".modal-dialog").addEventListener("click", (event) => {
@@ -30,7 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   modal.addEventListener("click", (event) => {
     if (event._isClickWithinModal) return;
-    modal.style.display = "none";
+    modal.style.zIndex = "-1";
+    modal.style.opacity = "0";
   });
 
   openBtnCard.forEach(function (item) {
