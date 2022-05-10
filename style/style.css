@@ -358,16 +358,25 @@ body::-webkit-scrollbar {
   line-height: 1.5;
 }
 
-.descrbox {
-  position: relative;
+.shadowbox{
+  width: 700px;
+  height: 460px;
+  position: absolute;
   background-color: #ffff;
   border-radius: 40px;
   padding: 20px 35px;
-  box-shadow: .5px .5px .5px .5px rgba(157, 185, 198, 0.39);
+  box-shadow: 1px 1px 5px 1px rgba(157, 185, 198, 0.39);
+  z-index: 2;
+  left: 170px; ;
+}
+
+.descrbox {
+  position: relative;
+  background-color: transparent;
   margin: 2px;
   float: right;
   text-align: left;
-  z-index: 2;
+  z-index: 3;
 }
 
 .content2__descr-container {
